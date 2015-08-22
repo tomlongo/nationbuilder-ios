@@ -45,6 +45,10 @@ extern NSString * __nonnull const NBAuthenticationDefaultRedirectPath;
 // NOTE: Completion handlers may be dispatched synchronously. Async should not be assumed.
 
 // #token-flow
+
+-(void)setCredentialWithAccessToken:(nullable NSString *)accessToken tokenType:(nullable NSString *)type;
+-(nullable NSURL *)authenticationURLWithRedirectPath:(nonnull NSString *)redirectPath;
+
 - (void)authenticateWithRedirectPath:(nonnull NSString *)redirectPath
                         priorSignout:(BOOL)needsPriorSignout
                    completionHandler:(nonnull NBAuthenticationCompletionHandler)completionHandler;

@@ -122,6 +122,50 @@ static NBLogLevel LogLevel = NBLogLevelWarning;
 
 #pragma mark Authenticate API
 
+-(void)setCredentialWithAccessToken:(NSString *)accessToken tokenType:(NSString *)type {
+    self.credential = [[NBAuthenticationCredential alloc] initWithAccessToken:accessToken
+                                                                    tokenType:type];
+    
+}
+
+-(NSURL *)authenticationURLWithRedirectPath:(NSString *)redirectPath {
+    
+    NSDictionary *parameters = @{ @"response_type": NBAuthenticationResponseTypeToken,
+                                  @"redirect_uri":  [NSString stringWithFormat:@"%@://%@",
+                                                     self.class.authorizationRedirectApplicationURLScheme,
+                                                     redirectPath] };
+    
+    return [self authenticationURLWithSubPath:@"/authorize" parameters:parameters];
+    
+}
+
+-(NSURL *)authenticationURLWithSubPath:(NSString *)subPath parameters:(NSDictionary *)parameters {
+    // Perform authentication against service.
+    NSMutableDictionary *mutableParameters = [parameters mutableCopy];
+    mutableParameters[@"client_id"] = self.clientIdentifier;
+    parameters = [NSDictionary dictionaryWithDictionary:mutableParameters];
+    
+    NSURLComponents *components =
+    [NSURLComponents componentsWithURL:[NSURL URLWithString:[@"/oauth" stringByAppendingPathComponent:subPath]
+                                              relativeToURL:self.baseURL]
+               resolvingAgainstBaseURL:YES];
+    
+    components.percentEncodedQuery = [parameters nb_queryString];
+    
+    NSURL *url = components.URL;
+    if (self.currentlyNeedsPriorSignout) {
+        // NOTE: NSURLComponents was forming URLs that Safari would misinterpret by chopping off the path.
+        NSString *escapedURLString = [url.absoluteString nb_percentEscapedQueryStringWithEncoding:NSUTF8StringEncoding
+                                                                       charactersToLeaveUnescaped:nil];
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"/logout?url=%@", escapedURLString]
+                     relativeToURL:self.baseURL];
+        // NOTE: Safari seems to reject our relative URLs.
+        url = url.absoluteURL;
+    }
+    
+    return url;
+}
+
 - (void)authenticateWithRedirectPath:(NSString *)redirectPath
                         priorSignout:(BOOL)needsPriorSignout
                    completionHandler:(NBAuthenticationCompletionHandler)completionHandler
@@ -219,29 +263,10 @@ static NBLogLevel LogLevel = NBLogLevelWarning;
         completionHandler(self.credential, nil);
         return nil;
     }
-    // Perform authentication against service.
-    NSMutableDictionary *mutableParameters = [parameters mutableCopy];
-    mutableParameters[@"client_id"] = self.clientIdentifier;
-    parameters = [NSDictionary dictionaryWithDictionary:mutableParameters];
     
-    NSURLComponents *components =
-    [NSURLComponents componentsWithURL:[NSURL URLWithString:[@"/oauth" stringByAppendingPathComponent:subPath]
-                                              relativeToURL:self.baseURL]
-               resolvingAgainstBaseURL:YES];
-    
-    components.percentEncodedQuery = [parameters nb_queryString];
+    NSURL *url = [self authenticationURLWithSubPath:subPath parameters:parameters];
     
     NSURLSessionDataTask *task;
-    NSURL *url = components.URL;
-    if (self.currentlyNeedsPriorSignout) {
-        // NOTE: NSURLComponents was forming URLs that Safari would misinterpret by chopping off the path.
-        NSString *escapedURLString = [url.absoluteString nb_percentEscapedQueryStringWithEncoding:NSUTF8StringEncoding
-                                                                       charactersToLeaveUnescaped:nil];
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"/logout?url=%@", escapedURLString]
-                     relativeToURL:self.baseURL];
-        // NOTE: Safari seems to reject our relative URLs.
-        url = url.absoluteURL;
-    }
     if (parameters[@"response_type"] == NBAuthenticationResponseTypeToken) {
         [self authenticateInWebBrowserWithURL:url completionHandler:completionHandler];
     } else if (parameters[@"grant_type"] == NBAuthenticationGrantTypePasswordCredential) {
