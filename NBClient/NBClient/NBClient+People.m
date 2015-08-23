@@ -84,6 +84,13 @@
     return [self baseFetchTaskWithURLComponents:components resultsKey:@"person" completionHandler:completionHandler];
 }
 
+- (NSURLSessionDataTask *)fetchPeopleCountForClientUserWithCompletionHandler:(NBClientResourceItemCompletionHandler)completionHandler
+{
+    NSURLComponents *components = [self.baseURLComponents copy];
+    components.path = [components.path stringByAppendingString:@"/people/count"];
+    return [self baseFetchTaskWithURLComponents:components resultsKey:@"people_count" completionHandler:completionHandler];
+}
+
 #pragma mark - Taggings
 
 - (NSURLSessionDataTask *)fetchPersonTaggingsByIdentifier:(NSUInteger)personIdentifier

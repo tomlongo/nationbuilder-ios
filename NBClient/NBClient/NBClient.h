@@ -15,7 +15,7 @@
 @protocol NBClientDelegate;
 
 typedef void (^NBClientResourceListCompletionHandler)(NSArray * __nullable items, NBPaginationInfo * __nullable paginationInfo, NSError * __nullable error);
-typedef void (^NBClientResourceItemCompletionHandler)(NSDictionary * __nullable item, NSError * __nullable error);
+typedef void (^NBClientResourceItemCompletionHandler)(id __nullable item, NSError * __nullable error);
 
 // Use these constants when working with the client's errors.
 extern NSUInteger const NBClientErrorCodeService;

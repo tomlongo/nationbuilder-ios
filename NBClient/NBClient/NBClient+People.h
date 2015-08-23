@@ -40,6 +40,10 @@
 // GET /people/match
 - (nonnull NSURLSessionDataTask *)fetchPersonByParameters:(nonnull NSDictionary *)parameters
                                     withCompletionHandler:(nonnull NBClientResourceItemCompletionHandler)completionHandler;
+
+// GET /people/count
+- (nonnull NSURLSessionDataTask *)fetchPeopleCountForClientUserWithCompletionHandler:(nonnull NBClientResourceItemCompletionHandler)completionHandler;
+
 // GET /people/:id/taggings
 - (nonnull NSURLSessionDataTask *)fetchPersonTaggingsByIdentifier:(NSUInteger)personIdentifier
                                             withCompletionHandler:(nonnull NBClientResourceListCompletionHandler)completionHandler;
