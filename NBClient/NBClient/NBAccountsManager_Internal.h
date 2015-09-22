@@ -9,7 +9,7 @@
 
 @interface NBAccountsManager ()
 
-@property (nonatomic, weak, readwrite, nonnull) id<NBAccountsManagerDelegate> delegate;
+@property (nonatomic, weak, readwrite) id<NBAccountsManagerDelegate> delegate;
 
 // NBAccountsViewDataSource
 @property (nonatomic, readwrite) BOOL signedIn;
