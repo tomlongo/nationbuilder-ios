@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		6C4164491B69EED30029772E /* NBClient+Contacts.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4164421B69EED30029772E /* NBClient+Contacts.m */; };
-		6C41644A1B69EED30029772E /* NBClient+Donations.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4164441B69EED30029772E /* NBClient+Donations.m */; };
 		6C41644B1B69EED30029772E /* NBClient+Lists.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4164461B69EED30029772E /* NBClient+Lists.m */; };
 		6C41644C1B69EED30029772E /* NBClient+Tags.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4164481B69EED30029772E /* NBClient+Tags.m */; };
+		6CD2281F1BB19E09001717E2 /* NBClient+Donations.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4164441B69EED30029772E /* NBClient+Donations.m */; settings = {ASSET_TAGS = (); }; };
+		6CD228211BB19EA5001717E2 /* NBClient+Contacts.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C4164411B69EED30029772E /* NBClient+Contacts.h */; };
+		6CD228221BB19EA5001717E2 /* NBClient+Donations.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C4164431B69EED30029772E /* NBClient+Donations.h */; };
+		6CD228231BB19EA5001717E2 /* NBClient+Lists.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C4164451B69EED30029772E /* NBClient+Lists.h */; };
+		6CD228241BB19EA5001717E2 /* NBClient+Tags.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C4164471B69EED30029772E /* NBClient+Tags.h */; };
 		AA2490521A099312006F0D24 /* NBAccountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2490511A099312006F0D24 /* NBAccountTests.m */; };
 		AA2490541A099321006F0D24 /* NBAccountsManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2490531A099321006F0D24 /* NBAccountsManagerTests.m */; };
 		AA2490561A09C7AE006F0D24 /* NBAccount_Internal.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA2490551A09C72B006F0D24 /* NBAccount_Internal.h */; };
@@ -99,6 +103,10 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				6CD228211BB19EA5001717E2 /* NBClient+Contacts.h in CopyFiles */,
+				6CD228221BB19EA5001717E2 /* NBClient+Donations.h in CopyFiles */,
+				6CD228231BB19EA5001717E2 /* NBClient+Lists.h in CopyFiles */,
+				6CD228241BB19EA5001717E2 /* NBClient+Tags.h in CopyFiles */,
 				AAD2806B1A0BDFF200E6DF39 /* NBAccountsManager_Internal.h in CopyFiles */,
 				AA2490561A09C7AE006F0D24 /* NBAccount_Internal.h in CopyFiles */,
 				AA71A9741A085668005E9231 /* NBAuthenticator_Internal.h in CopyFiles */,
@@ -552,7 +560,7 @@
 				AA668DD11970B81800A952B0 /* FoundationAdditions.m in Sources */,
 				AAEFEAEF19E6E73800777BC1 /* NBAccountsViewController.m in Sources */,
 				AA862851196F1651005060C9 /* NBAuthenticator.m in Sources */,
-				6C41644A1B69EED30029772E /* NBClient+Donations.m in Sources */,
+				6CD2281F1BB19E09001717E2 /* NBClient+Donations.m in Sources */,
 				6C41644C1B69EED30029772E /* NBClient+Tags.m in Sources */,
 				AAAEFC2C196CD13D00222A48 /* NBClient.m in Sources */,
 				AA3B62A819E8B86700798C49 /* UIKitAdditions.m in Sources */,
