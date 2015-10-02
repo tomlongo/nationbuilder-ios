@@ -58,6 +58,11 @@
 - (nonnull NSURLSessionDataTask *)deletePersonTaggingsByIdentifier:(NSUInteger)personIdentifier
                                                           tagNames:(nonnull NSArray *)tagNames
                                              withCompletionHandler:(nonnull NBClientResourceItemCompletionHandler)completionHandler;
+// POST /people/:id/notes
+- (nonnull NSURLSessionDataTask *)createPersonPrivateNoteByIdentifier:(NSUInteger)personIdentifier
+                                          withPrivateNoteInfo:(nonnull NSDictionary *)privateNoteInfo
+                                            completionHandler:(nonnull NBClientResourceItemCompletionHandler)completionHandler;
+
 // GET /people/:id/capitals
 - (nonnull NSURLSessionDataTask *)fetchPersonCapitalsByIdentifier:(NSUInteger)personIdentifier
                                                withPaginationInfo:(nullable NBPaginationInfo *)paginationInfo

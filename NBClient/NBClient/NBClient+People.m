@@ -153,6 +153,18 @@
     return [self baseDeleteTaskWithURLRequest:request completionHandler:completionHandler];
 }
 
+#pragma mark - Private Notes
+
+- (NSURLSessionDataTask *)createPersonPrivateNoteByIdentifier:(NSUInteger)personIdentifier
+                                          withPrivateNoteInfo:(NSDictionary *)privateNoteInfo
+                                        completionHandler:(NBClientResourceItemCompletionHandler)completionHandler
+{
+    NSURLComponents *components = [self.baseURLComponents copy];
+    components.path = [components.path stringByAppendingString:
+                       [NSString stringWithFormat:@"/people/%lu/notes", (unsigned long)personIdentifier]];
+    return [self baseSaveTaskWithURL:components.URL parameters:@{ @"note": privateNoteInfo } resultsKey:@"note" completionHandler:completionHandler];
+}
+
 #pragma mark - Political Capital
 
 - (NSURLSessionDataTask *)fetchPersonCapitalsByIdentifier:(NSUInteger)personIdentifier
