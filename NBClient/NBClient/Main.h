@@ -19,6 +19,7 @@
     #import "NBClient+Contacts.h"
     #import "NBClient+Lists.h"
     #import "NBClient+Tags.h"
+    #import "NBClient+Sites.h"
     #import "NBDefines.h"
     #import "FoundationAdditions.h"
     #import "NBPaginationInfo.h"
