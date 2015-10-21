@@ -21,4 +21,13 @@
     return [self baseFetchTaskWithURLComponents:components resultsKey:@"results" paginationInfo:paginationInfo completionHandler:completionHandler];
 }
 
+- (NSURLSessionDataTask *)fetchSurveysForSiteWithSlug:(NSString *)slug
+                                   withPaginationInfo:(NBPaginationInfo *)paginationInfo
+                                    completionHandler:(NBClientResourceListCompletionHandler)completionHandler {
+    NSURLComponents *components = [self.baseURLComponents copy];
+    components.path = [components.path stringByAppendingString:
+                       [NSString stringWithFormat:@"/sites/%@/pages/surveys", slug]];
+    return [self baseFetchTaskWithURLComponents:components resultsKey:@"results" paginationInfo:paginationInfo completionHandler:completionHandler];
+}
+
 @end

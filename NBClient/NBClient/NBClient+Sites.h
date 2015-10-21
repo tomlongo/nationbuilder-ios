@@ -13,4 +13,8 @@
 - (NSURLSessionDataTask *)fetchSitesWithPaginationInfo:(NBPaginationInfo *)paginationInfo
                                      completionHandler:(NBClientResourceListCompletionHandler)completionHandler;
 
+- (NSURLSessionDataTask *)fetchSurveysForSiteWithSlug:(NSString *)slug
+                                   withPaginationInfo:(NBPaginationInfo *)paginationInfo
+                                    completionHandler:(NBClientResourceListCompletionHandler)completionHandler;
+
 @end
