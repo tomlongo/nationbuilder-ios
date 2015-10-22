@@ -10,8 +10,7 @@
 
 @interface NBClient (Surveys)
 
-- (NSURLSessionDataTask *)createSurveyForSiteWithSlug:(NSString *)slug
-                                       withParameters:(NSDictionary *)parameters
-                                    completionHandler:(NBClientResourceItemCompletionHandler)completionHandler;
+- (NSURLSessionDataTask *)createSurveyResponseWithParameters:(NSDictionary *)parameters
+                                           completionHandler:(NBClientResourceItemCompletionHandler)completionHandler;
 
 @end

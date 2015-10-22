@@ -17,6 +17,8 @@
 		6CD228241BB19EA5001717E2 /* NBClient+Tags.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6C4164471B69EED30029772E /* NBClient+Tags.h */; };
 		6CD5B0931BD74B160044CA15 /* NBClient+Sites.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5B0921BD74B160044CA15 /* NBClient+Sites.m */; settings = {ASSET_TAGS = (); }; };
 		6CE0E41A1BD8DAA400A6FE8F /* NBClient+Surveys.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE0E4191BD8DAA400A6FE8F /* NBClient+Surveys.m */; settings = {ASSET_TAGS = (); }; };
+		6CE0E41B1BD8DCE200A6FE8F /* NBClient+Sites.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6CD5B0911BD74B160044CA15 /* NBClient+Sites.h */; };
+		6CE0E41C1BD8DCEB00A6FE8F /* NBClient+Surveys.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6CE0E4181BD8DAA400A6FE8F /* NBClient+Surveys.h */; };
 		AA2490521A099312006F0D24 /* NBAccountTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2490511A099312006F0D24 /* NBAccountTests.m */; };
 		AA2490541A099321006F0D24 /* NBAccountsManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2490531A099321006F0D24 /* NBAccountsManagerTests.m */; };
 		AA2490561A09C7AE006F0D24 /* NBAccount_Internal.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AA2490551A09C72B006F0D24 /* NBAccount_Internal.h */; };
@@ -114,10 +116,12 @@
 				AA71A9741A085668005E9231 /* NBAuthenticator_Internal.h in CopyFiles */,
 				AA3B62AD19E8BCF200798C49 /* NBAccountsViewController.h in CopyFiles */,
 				AA3B62AC19E8BCE700798C49 /* NBAccountsManager.h in CopyFiles */,
+				6CE0E41C1BD8DCEB00A6FE8F /* NBClient+Surveys.h in CopyFiles */,
 				AA3B62AA19E8BCDA00798C49 /* NBAccountsViewDefines.h in CopyFiles */,
 				AA674F0219E60A54009C6D4B /* UI.h in CopyFiles */,
 				AA3B62A919E8BCCE00798C49 /* UIKitAdditions.h in CopyFiles */,
 				AA674F0919E60D1F009C6D4B /* NBAccountButton.h in CopyFiles */,
+				6CE0E41B1BD8DCE200A6FE8F /* NBClient+Sites.h in CopyFiles */,
 				AA90915419834164009BE1E9 /* FoundationAdditions.h in CopyFiles */,
 				AA90915319834164009BE1E9 /* Main.h in CopyFiles */,
 				AAEFEB0019E716CE00777BC1 /* NBAccount.h in CopyFiles */,

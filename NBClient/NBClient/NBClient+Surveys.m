@@ -14,9 +14,8 @@
 
 @implementation NBClient (Surveys)
 
-- (NSURLSessionDataTask *)createSurveyForSiteWithSlug:(NSString *)slug
-                                       withParameters:(NSDictionary *)parameters
-                                    completionHandler:(NBClientResourceItemCompletionHandler)completionHandler {
+- (NSURLSessionDataTask *)createSurveyResponseWithParameters:(NSDictionary *)parameters
+                                           completionHandler:(NBClientResourceItemCompletionHandler)completionHandler {
     NSURLComponents *components = [self.baseURLComponents copy];
     components.path = [components.path stringByAppendingString:@"/survey_responses"];
     return [self baseCreateTaskWithURL:components.URL parameters:@{ @"survey_response": parameters } resultsKey:@"survey_response" completionHandler:completionHandler];
