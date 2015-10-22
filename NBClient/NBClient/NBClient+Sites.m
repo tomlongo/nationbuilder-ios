@@ -30,4 +30,13 @@
     return [self baseFetchTaskWithURLComponents:components resultsKey:@"results" paginationInfo:paginationInfo completionHandler:completionHandler];
 }
 
+- (NSURLSessionDataTask *)createSurveyForSiteWithSlug:(NSString *)slug
+                                       withParameters:(NSDictionary *)parameters
+                                     completionHandler:(NBClientResourceItemCompletionHandler)completionHandler {
+    NSURLComponents *components = [self.baseURLComponents copy];
+    components.path = [components.path stringByAppendingString:
+                       [NSString stringWithFormat:@"/sites/%@/pages/surveys", slug]];
+    return [self baseCreateTaskWithURL:components.URL parameters:@{ @"survey": parameters } resultsKey:@"survey" completionHandler:completionHandler];
+}
+
 @end
