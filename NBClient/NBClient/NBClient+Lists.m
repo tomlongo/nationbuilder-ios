@@ -30,4 +30,14 @@
     return [self baseFetchTaskWithURLComponents:components resultsKey:@"results" paginationInfo:paginationInfo completionHandler:completionHandler];
 }
 
+- (NSURLSessionDataTask *)addPeopleListByIdentifier:(NSUInteger)identifier
+                                      withPeopleIdentifiers:(nonnull NSArray *)peopleIdentifiers
+                                          completionHandler:(nonnull NBClientResourceItemCompletionHandler)completionHandler {
+    NSURLComponents *components = [self.baseURLComponents copy];
+    components.path = [components.path stringByAppendingString:
+                       [NSString stringWithFormat:@"/lists/%lu/people", (unsigned long)identifier]];
+    return [self baseCreateTaskWithURL:components.URL parameters:@{ @"people_ids": peopleIdentifiers } resultsKey:@"results" completionHandler:completionHandler];
+
+}
+
 @end

@@ -10,12 +10,17 @@
 
 @interface NBClient (Lists)
 
-- (NSURLSessionDataTask *)fetchListsWithPaginationInfo:(NBPaginationInfo *)paginationInfo
-                                     completionHandler:(NBClientResourceListCompletionHandler)completionHandler;
+- (nonnull NSURLSessionDataTask *)fetchListsWithPaginationInfo:(nonnull NBPaginationInfo *)paginationInfo
+                                     completionHandler:(nonnull NBClientResourceListCompletionHandler)completionHandler;
 
-- (NSURLSessionDataTask *)fetchListOfPeopleByIdentifier:(NSUInteger)identifier
-                                     withPaginationInfo:(NBPaginationInfo *)paginationInfo
-                                      completionHandler:(NBClientResourceListCompletionHandler)completionHandler;
+- (nonnull NSURLSessionDataTask *)fetchListOfPeopleByIdentifier:(NSUInteger)identifier
+                                     withPaginationInfo:(nonnull NBPaginationInfo *)paginationInfo
+                                      completionHandler:(nonnull NBClientResourceListCompletionHandler)completionHandler;
+
+- (nonnull NSURLSessionDataTask *)addPeopleListByIdentifier:(NSUInteger)identifier
+                                                  withPeopleIdentifiers:(nonnull NSArray *)peopleIdentifiers
+                                                    completionHandler:(nonnull NBClientResourceItemCompletionHandler)completionHandler;
+
 
 
 @end
