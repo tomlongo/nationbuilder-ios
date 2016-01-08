@@ -175,10 +175,13 @@ static NSArray *LegacyPaginationEndpoints;
 
 - (NSURLComponents *)baseURLComponents
 {
-    if (_baseURLComponents) {
-        return _baseURLComponents;
+    
+    if(!_baseURLComponents) {
+        self.baseURLComponents = [NSURLComponents componentsWithURL:self.baseURL resolvingAgainstBaseURL:YES];
     }
-    self.baseURLComponents = [NSURLComponents componentsWithURL:self.baseURL resolvingAgainstBaseURL:YES];
+    // Setting path and access token every time
+    // because in some cases the token was not being set after auth, causing errors
+    // this makes sure that if the apiKey is set it will always be present in _baseURLComponents
     _baseURLComponents.path = [NSString stringWithFormat:@"/api/%@", self.apiVersion];
     _baseURLComponents.percentEncodedQuery = [@{ @"access_token": self.apiKey ?: @"" } nb_queryString];
     return _baseURLComponents;
